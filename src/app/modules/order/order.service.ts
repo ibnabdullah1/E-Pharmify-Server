@@ -2,12 +2,12 @@ import { Product } from '../product/product.model';
 import { TOrder } from './order.interface';
 import { Order } from './order.model';
 
-const createOrder = async (orderData: TOrder): Promise<TOrder> => {
+const createOrder = async (orderData: TOrder) => {
   const newOrder = await Order.create(orderData);
   const cartItems = orderData.cartItems;
   for (const item of cartItems) {
     await Product.findByIdAndUpdate(
-      { _id: item.id },
+      { _id: item._id },
       { $inc: { stockQuantity: -item.quantity } },
       { new: true },
     );

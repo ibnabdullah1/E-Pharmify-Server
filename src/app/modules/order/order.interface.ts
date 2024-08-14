@@ -10,7 +10,7 @@ export interface TOrder {
   orderId: string;
   orderDate: string;
   cartItems: {
-    id: string;
+    _id: string;
     image: string;
     name: string;
     price: number;

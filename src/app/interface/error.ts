@@ -8,3 +8,7 @@ export type TGenericErrorResponse = {
   message: string;
   errorSources: TErrorSources;
 };
+export interface UpdateUserRoleData {
+  id: string;
+  role: string;
+}
